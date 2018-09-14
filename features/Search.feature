@@ -4,3 +4,6 @@ Feature: Validate Search Functionality
   When User enters search item
   And User clicks on Search
   Then User navigates to search result page
+
+
+#this is test
