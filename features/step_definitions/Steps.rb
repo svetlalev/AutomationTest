@@ -12,5 +12,6 @@ When("User clicks on Search") do
 end
 
 Then("User navigates to search result page") do
-
+  actual_url = $driver.current_url
+  assert_equal("https://www.facebook.com/", actual_url, "The URL is incorrect")
 end
