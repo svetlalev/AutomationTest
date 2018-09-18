@@ -4,14 +4,14 @@ Given("User is on main page") do
 end
 =end
 When(/^User enters search item$/) do
-  $driver.find_element(:name,"search").send_keys("iPhone")
+  fill_in('search', :with => 'iPhone')
 end
 
 When("User clicks on Search") do
-  $driver.find_element(:xpath,"//button[@class='btn btn-default btn-lg']")
+  find(:xpath, "/HTML/BODY/HEADER/DIV/DIV/DIV[2]/DIV/SPAN/BUTTON").click
 end
 
 Then("User navigates to search result page") do
-  actual_url = $driver.current_url
-  assert_equal("https://www.facebook.com/", actual_url, "The URL is incorrect")
+  expect(page).to have_content('Search - iPhone')
+  expect(page).to have_content('Products meeting the search criteria')
 end
